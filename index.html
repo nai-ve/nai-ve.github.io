@@ -1,396 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YC·疆域</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>静自习</title>
     <style>
-        /* 横幅图 */
-        .banner {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 210px;
-            background-color: black;
-            overflow: hidden;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
-
-        .banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-         }
-
-        /* 主图 */
-        .main-image {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 175px;
-            height: 200px;
-            width: 340px;
-             }
-
-        .main-image-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 30px;
+        button {
+            display: block;
+            margin: 50% auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color:black;
             color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 35px;
         }
-         .p1{
-          height: 200px;
-          width: 340px;
-        }
-        /* 添加标题样式 */
-        .section-title {
-            position: absolute;
-            top: 260px; /* 调整距离横幅图的位置 */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
-        }
-
-        /* 工具栏 */
-        .toolbar {
-            position: absolute;
-            bottom: 435px;
-            left: 0;
-            right: 0;
-            height: 47px;
-            background-color: green;
-            display: flex;
-            justify-content: center;
-        }
-
-        .toolbar a {
-            flex: 1;
+        #message {
             text-align: center;
-            line-height: 50px;
-            font-size: 19px;
-            text-decoration: none;
-            color: white;
-            position: relative; /* 添加这一行 */
-
+            font-size: 24px;
+            margin: 20px 0;
         }
-                .toolbar a::before { 
-            content: "|"; 
-            position: absolute; 
-            left: -15px; 
-            color: white; 
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
         }
-
-        /* 半透明导航栏 */
-          nav {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  height: 43px;
-                  background-color: rgba(0, 0, 0, 0.5);
-                }
-                                /* 半透明导航栏文字样式 */
-                                nav span {
-                                  color: white;
-                                  font-weight: bold;
-                                  display: inline-block;
-                                  line-height: 45px;
-                                  font-size: 24px;
-                                }
-                    /*6个矩形*/
-                                .black-rectangle {                   width: 150px;
-                                          height: 90px;
-                                          background-color: green;
-                                          color: white;
-                                          font-size: 18px;
-                                          text-align: center;
-                                          line-height: 90px;
-                                          position: absolute;
-                                          border-radius: 7px;
-                                        }
-                                
-                                        /* 矩形 */
-                                        .black-rectangle-1 {
-                                          top: 540px;
-                                          left: 15px;
-                                        }
-                                
-                                        .black-rectangle-2 {
-                                          top: 540px;
-                                          left: 195px;
-                                        }
-                                
-                                        .black-rectangle-3 {
-                                          top: 640px;
-                                          left: 15px;
-                                        }
-                                
-                                        .black-rectangle-4 {
-                                          top: 640px;
-                                          left: 195px;
-                                        }
-                    /*工具栏2*/
-                    .use{
-                      width: 100%;
-                      height: 70px;
-                      background-color:green; 
-                      position:absolute;
-                      top: 750px;
-                    }
-                    .tu1{
-                      position: absolute; margin-left: 35px;
-                      height:50px;
-                      margin-top: 10px;
-                    }
-                    .tu2{
-                      position: absolute; margin-left: 155px;
-                      margin-top: 15px;
-                    height:40px;
-                    }   
-                    .tu3{
-                      position: absolute; margin-left: 270px;
-                      margin-top: 10px;
-                      height: 45px;
-                    }
-                  /* 添加标题样式 */
-            .xiaoxu-title {
-                    position: absolute;
-                    top: 820px;
-                    /* 调整距离横幅图的位置 */
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 28px;
-                    font-weight: bold;
-                    color: black;
-                  }
-        /* 图片表格 */
-        .image-table { 
-            display:flex;
-            flex-direction: row;
-            width: 100%;
-            justify-content: space-between;
-           overflow-x: auto;/*悬浮*/
-           margin-top:850px;
-
-        }
-
-        .image-table img {
-            width: 290px;
-            height: 180px;
-          border-radius: 15px;
-          margin-right: 5px;
-          margin-left: 5px;
-        }
-        /*YC·简介*/
-                /* 添加标题样式 */
-                .jianjie-title {
-                  position: absolute;
-                  top: 1070px;
-                  /* 调整距离横幅图的位置 */
-                  left: 50%;
-                  transform: translateX(-50%);
-                  font-size: 28px;
-                  font-weight: bold;
-                  color: black;
-                }
-              .jianiie{
-                width: 330px;
-                height: 500px;
-                position:absolute;
-                top: 1140px;
-                left: 15px;
-                background-color: green;
-                border-radius: 20px;
-                color: white;
-              }
-              .jianiie-img{
-                width: 150px;
-                height:120px;
-                border-radius: 10px;
-                margin:10px;
-              }
-              /*新闻*/
-                              /* 添加标题样式 */
-          .xinwen-title {
-                  position: absolute;
-                  top: 1630px;
-                  /* 调整距离横幅图的位置 */
-                  left: 50%;
-                  transform: translateX(-50%);
-                  font-size: 28px;
-                  font-weight: bold;
-                  color: black;
-                }
-               /*新闻内容*/
-    .di{
-      width: 340px;
-      height: 430px;
-      background-color: green;
-      border-radius: 10px;
-      position: absolute;
-      top: 1725px;
-      left: 10px;
-    }
-    .xinwen1{
-      width: 340px;
-      height: 90px;
-      background-color: green;
-      border-bottom: 3px  solid white;
-      position: absolute;
-      margin-top: 0px;
-
-    }
-    .xinwen2 {
-          width: 340px;
-          height: 90px;
-          background-color: green;
-          border-bottom: 3px solid white;
-          position: absolute;
-          top: 103px;
-    
-        }
-            .xinwen3 {
-              width: 340px;
-              height: 90px;
-              background-color: green;
-              border-bottom: 3px solid white;
-              position: absolute;
-              top: 198px;
-        
-            }
-                        .xinwen4 {
-                          width: 340px;
-                          height: 90px;
-                          background-color: green;
-                          border-bottom: 3px solid white;
-                          position: absolute;
-                          top: 293px;
-            
-                        }
-    .im{
-      width: 100px;
-      height:90px;
-    }
-  .z1{
-     color: white;
-     position: absolute;
-     font-size: 16px;
-    top: 40px;
-   }
-   /*底部横幅*/
-   .last{
-     width: 100%;
-     height: 230px;
-     background-color: green;
-     position: absolute;
-     top: 2200px;
-   }
-    .dibu{
-      color: white;
-      font-size: 16px;
-      margin-left: 10px;
-      margin-top: 2px;
-      margin-bottom: 2px;
-    }  
     </style>
 </head>
 <body>
-    <!-- 横幅图 -->
-    <div class="banner">
-        <img src="/img/s10.jpg" alt="">
-        <img src="/img/s7.jpg" alt="">
-        <img src="/img/s5.jpg" alt="">
-        <img src="/img/s8.jpg" alt="">
-        <img src="/img/s9.jpg" alt="">
-    </div>
-    <!-- 主图 -->
-    <div class="main-image">
-      <img class="p1" src="/img/s3.jpg">
-    <div class="main-image-text">
-            welcometoNEYC
-        </div>
-    </div>
-    <!-- 添加标题“YC·新疆部” -->
-    <h1 class="section-title">YC·新疆部</h1>
+    <button onclick="start()">开始自习</button>
+    <p id="message"></p>
+    <img id="image1" src="/1.png" style="display:none;">
+    <img id="image2" src="/2.png" style="display:none;">
 
-    <!-- 工具栏 -->
-    <div class="toolbar">
-        <a href="/we.html">我们</a>
-        <a href="https://www.baidu.com/s?ie=UTF-8&wd=%E4%B8%9C%E5%8C%97%E8%82%B2%E6%89%8D%E5%AD%A6%E6%A0%A1%E4%BD%8D%E7%BD%AE">地址</a>
-        <a href="/photo.html">摄影</a>
-        <a href="#">其他</a>
-    </div>
     <script>
-        var bannerImages = document.querySelectorAll('.banner img');
-        var currentIndex = 0;
-        var interval = setInterval(function() {
-            bannerImages[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex + 1) % bannerImages.length;
-            bannerImages[currentIndex].style.display = 'block';
-        }, 3000);
+        function start() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(function(stream) {
+                    var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    var analyser = audioContext.createAnalyser();
+                    var source = audioContext.createMediaStreamSource(stream);
+                    source.connect(analyser);
+                    analyser.fftSize = 2048;
+                    var bufferLength = analyser.frequencyBinCount;
+                    var dataArray = new Uint8Array(bufferLength);
+
+                    function update() {
+                        analyser.getByteFrequencyData(dataArray);
+                        var sum = 0;
+                        for (var i = 0; i < bufferLength; i++) {
+                            sum += dataArray[i];
+                        }
+                        var average = sum / bufferLength;
+                        var db = 20 * Math.log10(average);
+                        if (db > 30) {
+                            document.getElementById("message").innerHTML = "请保持安静";
+                            document.getElementById("image1").style.display = "none";
+                            document.getElementById("image2").style.display = "block";
+                        } else {
+                            document.getElementById("message").innerHTML = "非常棒";
+                            document.getElementById("image1").style.display = "block";
+                            document.getElementById("image2").style.display = "none";
+                        }
+                        requestAnimationFrame(update);
+                    }
+                    update();
+                })
+                .catch(function(err) {
+                    console.log("Error: " + err);
+                });
+        }
     </script>
-    <!-- 半透明导航栏 -->
-        <nav>            <span>NEYC新疆部</span>            <div class="black-rectangle black-rectangle-1">振兴育才</div>
-            <div class="black-rectangle black-rectangle-2">扬我国威</div>
-            <div class="black-rectangle black-rectangle-3">创造一流</div>
-            <div class="black-rectangle black-rectangle-4">走向世界</div>
-            <div class="use">
-             <a  href="https://www.neyc.cn/"><img class=" tu1" src="/img/icon1.png"></a>
-               <a  href= "https://b23.tv/BxMMlHu"><img class=" tu2" src="/img/icon2.png"></a>
-             <a  href="https://ml.mbd.baidu.com/r/19grxL6k0Te?f=cp&u=c50967fd32947d20"> <img class=" tu3" src="/img/icon3.png"></a>
-            </div>
-            </div>
-        <!-- 添加标题“YC·疆域” -->
-    <h1 class="xiaoxu-title">YC·疆域</h1>
-    <!-- 图片表格 -->
-    <div class="image-table">
-        <img src="/img/s2.jpg" alt="">
-        <img src="/img/s1.jpg" alt="">
-        <img  src="/img/s6.jpg"  alt="">
-        <img  src="/img/s11.jpg"  alt="">
-        <img  src="/img/s4.jpg"  alt="">
-    </div>
-    <!--简介-->
-        <!-- 添加标题“YC·简介” -->
-    <h1 class="jianjie-title">YC·简介</h1>
-<div class="jianiie">
-  <img class="jianiie-img" src="/img/s12.jpg">
- <p>
-东北育才学校简介
-东北育才学校位于辽宁省沈阳市，是由张闻天、徐特立等老一代无产阶级革命家创建的一所具有光荣革命传统的学校，是沈阳市教育局直属的省重点中学，辽宁省首批示范性高中 </p>
-<p>东北育才学校创建于1949年，时名东北第一育才小学，1981年，学校成为沈阳市教育局直属学校，并被列为辽宁省重点中学。截至2017年5月，学校共有8个校区14个学部（不含网校），占地面积约80万平方米，建筑面积约42万平方米，学生人数发展到15000余人，教师1000余人</p>
-</div>
-<!--新闻-->
-        <!-- 添加标题“YC·新闻” -->
-    <h1 class="xinwen-title">YC·新闻</h1>
-     <div class="di">
-       <div class="xinwen1">
-         <img class=" im" src="/img/s13.jpg" alt="">
-         <p1 class="z1">新疆部高二年级主持浑南校区升国旗仪式</p1>
-       </div>
-       <div class="xinwen2">
-         <img class=" im" src="/img/s14.jpg" alt="">
-         <p1 class="z1">新疆部承办东北育才学校浑南校区第八十届田径运动会</p1>
-       </div>
-       <div class="xinwen3">
-         <img class=" im" src="/img/s15.jpg" alt="">
-         <p1 class="z1">新疆部同学返回校园</p1>
-       </div>
-       <div class="xinwen4">
-         <img class=" im" src="/img/s16.jpg" alt="">
-         <p1 class="z1">新疆部高一和高二年级同学开启返疆之旅</p1>
-       </div>
-     </div>
-     <!--底部横幅-->
-     <div class="last">
-       <p class="dibu">版权所有©星环Naive工作室</p>
-       <p class="dibu">反馈意见: 676932025@qq.com
-       <p class="dibu">2023.11.12</p>
-       <p class="dibu">感谢名单: 糖果城工作室/慧玲金阁/AYJ/格罗布奥特曼</p>
-     </div>
-   </body>
+</body>
 </html>
